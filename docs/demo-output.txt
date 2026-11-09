@@ -1,0 +1,49 @@
+
+▶ Cadastro antigo no CRM gravado como "1188887777" (sem DDI e sem o 9)
+
+▶ Maria chama direto no WhatsApp como "+55 11 98888-7777" (R1/R6)
+   ✔ R1 [chat2desk/message_in] applied — contato existente reaproveitado (R6), negociação criada
+
+▶ Duas mensagens chegam ao mesmo tempo (R1)
+   · R6 [chat2desk/message_in] skipped — contato e negociação aberta já existem
+   · R6 [chat2desk/message_in] skipped — contato e negociação aberta já existem
+
+▶ Consultor preenche destino e nº de pessoas (R3)
+   ✔ R3 [chat2desk/fields_changed] applied
+
+▶ Campo destino é apagado no Chat2Desk (R3: não apaga no CRM)
+   · R3 [chat2desk/fields_changed] skipped — nenhum campo mapeado com valor (vazio não apaga o CRM)
+
+▶ Etiqueta de prioridade aplicada (R2) — o webhook de volta do CRM deve ser eco
+   · R5 [rdcrm/deal_stage_changed] skipped — eco: etapa alterada pela própria integração (R2)
+   ✔ R2 [chat2desk/tag_added] applied
+
+▶ Etiqueta de prioridade aplicada de novo (R2: não move de novo)
+   · R2 [chat2desk/tag_added] skipped — negociação já está na etapa 2
+
+▶ Consultor move para "Proposta enviada" no CRM (R5) — o campo gravado no Chat2Desk deve ser eco
+   · R3 [chat2desk/fields_changed] skipped — eco: campo gravado pela própria integração (R5)
+   ✔ R5 [rdcrm/deal_stage_changed] applied
+
+▶ Atendimento encerrado; o webhook chega duplicado (R4)
+   ✔ R4 [chat2desk/dialog_closed] applied
+   · R4 [chat2desk/dialog_closed] skipped — resumo deste atendimento já registrado
+
+▶ RD CRM instável (2 falhas seguidas) quando chega um contato novo
+   ✔ R1 [chat2desk/message_in] applied — contato e negociação criados
+
+── Estado final ─────────────────────────────
+Contatos no CRM: 2 · Negociações: 2 · Notas: 1
+Negociação da Maria: {
+  etapa: 'stage-proposta',
+  campos: { destino: 'Lisboa', num_pessoas: '4' }
+}
+Campo "etapa_crm" no Chat2Desk: Proposta enviada
+Fila: {
+  received: 13,
+  duplicates: 0,
+  processed: 13,
+  retrying: 0,
+  failed: 0,
+  pending: 0
+} · Alertas: 0

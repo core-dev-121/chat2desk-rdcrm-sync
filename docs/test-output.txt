@@ -1,0 +1,13 @@
+
+ RUN  v3.2.7 .
+
+ ✓ test/rules.test.ts (13 tests) 26ms
+ ✓ test/queue.test.ts (4 tests) 20ms
+ ✓ test/phone.test.ts (15 tests) 4ms
+ ✓ test/webhooks.test.ts (5 tests) 6ms
+
+ Test Files  4 passed (4)
+      Tests  37 passed (37)
+   Start at  06:46:59
+   Duration  854ms (transform 131ms, setup 0ms, collect 176ms, tests 56ms, environment 1ms, prepare 196ms)
+

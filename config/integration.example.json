@@ -1,0 +1,19 @@
+{
+  "initialStageId": "ID_ETAPA_INICIAL",
+  "priorityTagId": "ID_ETIQUETA_PRIORIDADE",
+  "priorityStageId": "ID_ETAPA_2",
+  "ignoredTagIds": ["ID_ETIQUETA_N8N_1", "ID_ETIQUETA_N8N_2"],
+  "fieldMap": {
+    "destino": { "target": "both", "crmField": "destino" },
+    "data_ida": { "target": "deal", "crmField": "data_ida" },
+    "data_volta": { "target": "deal", "crmField": "data_volta" },
+    "num_pessoas": { "target": "deal", "crmField": "num_pessoas" }
+  },
+  "stageFeedback": { "mode": "field", "field": "etapa_crm" },
+  "stageNames": {
+    "ID_ETAPA_INICIAL": "Novo contato",
+    "ID_ETAPA_2": "Prioridade"
+  },
+  "dealNamePrefix": "WhatsApp",
+  "echoTtlMs": 600000
+}
